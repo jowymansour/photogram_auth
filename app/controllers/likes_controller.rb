@@ -15,11 +15,12 @@ class LikesController < ApplicationController
     @like = Like.new
     @like.user_id = params[:user_id]
     @like.photo_id = params[:photo_id]
+    session[:return_to] = request.referer
 
     if @like.save
-      redirect_to "/likes", :notice => "Like created successfully."
+      redirect_to session.delete(:return_to), :notice => "Like created successfully."
     else
-      render 'new'
+      redirect_to session.delete(:return_to), :notice => "Error"
     end
   end
 
@@ -42,9 +43,9 @@ class LikesController < ApplicationController
 
   def destroy
     @like = Like.find(params[:id])
-
+    session[:return_to] = request.referer
     @like.destroy
 
-    redirect_to "/likes", :notice => "Like deleted."
+    redirect_to session.delete(:return_to), :notice => "Like deleted."
   end
 end

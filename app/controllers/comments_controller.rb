@@ -16,9 +16,10 @@ class CommentsController < ApplicationController
     @comment.photo_id = params[:photo_id]
     @comment.body = params[:body]
     @comment.user_id = params[:user_id]
+    session[:return_to] = request.referer
 
     if @comment.save
-      redirect_to "/comments", :notice => "Comment created successfully."
+      redirect_to session.delete(:return_to), :notice => "Comment created successfully."
     else
       render 'new'
     end

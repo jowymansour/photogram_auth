@@ -54,6 +54,9 @@ Rails.application.routes.draw do
   #------------------------------
 
   devise_for :users
+  get '/users' => "users#index"
+  get '/users/:id' => "users#show"
+  get '/my_likes' => "users#liked_photos"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
