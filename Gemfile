@@ -52,3 +52,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'factory_girl_rails', group: [:test, :development]
 gem 'faker', group: [:test, :development]
 gem 'shoulda', group: [:test, :development]
+gem 'starter_generators', :git => "http://github.com/rbetina/starter_generators.git"
+gem 'devise'
