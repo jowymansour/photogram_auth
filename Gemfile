@@ -54,3 +54,4 @@ gem 'faker', group: [:test, :development]
 gem 'shoulda', group: [:test, :development]
 gem 'starter_generators', :git => "http://github.com/rbetina/starter_generators.git"
 gem 'devise'
+gem 'carrierwave'
